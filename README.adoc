@@ -55,6 +55,9 @@ specific repositories for each board. Also, there are further options like Wifi,
 All repositories contain gerber files and BOMs (of varying quality) where PCBs are included. Most of them are designed
 with KiCAD, one is still with Eagle.
 
+The CS/A bus boards are extensions that can be used with the Ultra-CPU or the Ulti-PET. Care needs to be taken to match
+the respective I/O ranges used to avoid bus conflicts.
+
 === Core repos
 
 * https://github.com/fachat/upet_roms[Firmware repository]
@@ -71,4 +74,11 @@ with KiCAD, one is still with Eagle.
 * https://github.com/fachat/upet_wifi[Wifi breakout board] (Note: so far untested)
 * https://github.com/fachat/csa_ultrabus[Bus for Ultra-CPU or bus extender for Ulti-PET]
 
+=== CS/A bus boards
+
+The PETIO board completes the Ultra-CPU to a PET clone:
+
+* http://www.6502.org/users/andre/csa/petio/index.html[PETIO CS/A board for the Ultra-CPU]
+
+Other CS/A bus boards are here http://www.6502.org/users/andre/csa/index.html[]
 
