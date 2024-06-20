@@ -85,18 +85,23 @@ Other CS/A bus boards are here http://www.6502.org/users/andre/csa/index.html[]
 == Gallery
 
 The boot screen
+
 image::images/boot.jpg[The boot screen]
 
 A demo showing the graphics capabilities
+
 image::images/graphdemo.jpg[A demo showing the graphics capabilities]
 
 The highest character resolution, 96x71
+
 image::images/hicharres.jpg[The highest character resolution, 96x71]
 
 Development of the board with new PET start screen
+
 image::images/devtest.jpg[Development of the board with new PET start screen]
 
 Running GeckOS in 8296 emulation mode
+
 image::images/geckos8296.jpg[Running GeckOS in 8296 emulation mode]
 
 
