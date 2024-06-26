@@ -58,6 +58,9 @@ with KiCAD, one is still with Eagle.
 The CS/A bus boards are extensions that can be used with the Ultra-CPU or the Ulti-PET. Care needs to be taken to match
 the respective I/O ranges used to avoid bus conflicts.
 
+To download the github repositories, you can actually run a "make clone" command on the command line,
+in the directory for this readme.
+
 === Core repos
 
 * https://github.com/fachat/upet_roms[Firmware repository]
