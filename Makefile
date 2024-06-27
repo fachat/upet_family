@@ -11,9 +11,10 @@ clone:
 	test -d ultipet || git clone https://github.com/fachat/cbm_ultipet ultipet
 	test -d ultrabus || git clone https://github.com/fachat/csa_ultrabus ultrabus
 	test -d wifi-option || git clone https://github.com/fachat/upet_wifi wifi-option
-	for i in roms fpga ultracpu micropet ultipet ultrabus wifi-option; do (cd $$i; make clone;) done
+	test -d upet_software || git clone https://github.com/fachat/upet_software software
+	for i in roms fpga ultracpu micropet ultipet ultrabus wifi-option software; do (cd $$i; make clone;) done
 
 update:
 	git pull
-	for i in roms fpga ultracpu micropet ultipet ultrabus wifi-option; do (cd $$i; make update;) done
+	for i in roms fpga ultracpu micropet ultipet ultrabus wifi-option software; do (cd $$i; make update;) done
 
