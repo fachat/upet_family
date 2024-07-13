@@ -86,6 +86,49 @@ The PETIO board completes the Ultra-CPU to a PET clone:
 
 Other CS/A bus boards are here http://www.6502.org/users/andre/csa/index.html[]
 
+== FAQs
+
+Here are some answers to questions I got:
+
+- The FPGA does not need direct programming. Instead you program the
+configuration ROM, which is an SPI-based Flash-PROM. This should be
+programmable with any more recent EPROM programmer. In fact you have to
+program two of those, one for the FPGA, one for the firmware.
+
+- The files provided are basically as "kit" as I can do: there are the
+gerber files, and Bill-of-Materials for all boards, that you can upload
+to Mouser to get all the parts (for me in Germany even without shipping
+costs as it is > 50$. Admittedly no SID replacements from mouser though,
+but all other parts are in there) The parts cost is about 300-350$ + tax
+though, plus PCBs. That is for the all-included Ulti-PET board. 
+For the Micro-PET board it's currently about 170$ + tax. 
+Mouser may not be the cheapest choice, so you may be
+able to optimize, but it is the most convenient for me.
+
+- Soldering might be a challenge. There are a couple of parts that have
+very small pin distances, down to IIRC .4 or .5mm. I might be looking
+into providing separate information for SMD assembly like
+https://jlcpcb.com/smt-assembly but I haven't gotten to that point yet.
+That would then allow to get a board with all SMD done, and only
+Through-hole parts to purchase yourself and solder.
+
+- Software-wise, you can select on the boot screen which version of
+BASIC (1, 2, or 4) you want to use. USB keyboard and SD Card support is
+available for BASIC4 for now.
+
+- Compatibility is limited regarding the video output timing. As the
+different PET models have different video output timings, my take was,
+to get VGA compliant video output, I'll define my own. It might be
+possible, using wait states for the CPU, to create a more correct timing
+as are in the 2001, or CRTC models. However, that is currently not
+implemented and not on my priority list. So, there will be limited
+success running the current set of new graphics demos, but anything else
+should be fine.
+
+- Hardware debugging can be a challenge. I know of some patterns where I
+know where to look, but I'll probably add some build guidelines to the
+documentation. 
+
 == Gallery
 
 The boot screen
