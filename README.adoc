@@ -66,6 +66,7 @@ in the directory for this readme.
 * https://github.com/fachat/upet_roms[Firmware repository]
 * https://github.com/fachat/upet_fpga[FPGA configuration repository]
 * https://github.com/fachat/upet_software[Software (links) repository]
+* https://github.com/fachat/xcbm[Emulator repository]
 
 === Specific boards
 
