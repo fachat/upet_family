@@ -1,0 +1,80 @@
+
+POKEs for the Micro-/Ulti-PET family
+====================================
+
+Video modes
+-----------
+
+Video Geometry::
+	
+	POKE 59520,  1: POKE 59521, HDISP
+	POKE 59520, 38: POKE 59521, HPOS (21)
+
+	POKE 59520,  6: POKE 59521, VDISP
+	POKE 59520, 39: POKE 59521, VPOS (110)
+
+	
+Interlace::
+
+	POKE 59520, 8
+	POKE 59521, 2	:REM INTERLACE
+	POKE 59521, 3	:REM DOUBLE VRES
+
+Split screen::
+
+- r40: ALT1: alternate register control I
+  - bit 0: if set, enable access to alternate r12/r13 video memory, r20/r21 attribute memory a
+  - bit 1: alternate bitmap mode bit
+  - bit 2: alternate attribute mode bit
+  - bit 3: alternate extended mode bit
+  - bit 4: if set, set palette to alternate palette on raster match - reset to original palett
+  - bit 5: if set, set bitmap, attribute and extended mode bits to alternate values on raster
+  - bit 6: if set, set attribute address memory counter to alternate address on raster match (
+  - bit 7: if set, set video memory address counter to alternate address on raster match (r38/
+
+	POKE 59520, 32
+	POKE 59521, 20+64	:REM MAP REGISTERS TO MEM
+	POKE 59520 + 30, 100	:REM RLINE LO
+	POKE 59520 + 31, 1  	:REM RLINE HI
+	POKE 59520 + 40, 2+32	:REM ALT BITMAP
+
+Joysticks
+---------
+
+
+Single-Joystick::
+	POKE 59484, 14
+
+Dual Joystick::
+	POKE 59484, 12
+
+
+SPI
+---
+
+SPI control::
+	POKE 59400, 8	:REM slow SPI
+
+
+DAC Audio::
+
+- $e83f (59455): Control (r/w)
+  - b4: enable IRQ when DMA is done (but SPI not yet finished)
+  - b3: DMA channel (if not stereo) / Dual-Mono-Flag (if stereo)
+  - b2: DMA stereo flag - data bytes are alternating between channel 0 and 1
+  - b1: DMA loop flag: if set, and full DMA block has been read, continue from the beginning
+  - b0: DMA active: set to start DMA. Will be reset to 0 when DMA ends
+
+	POKE 59455, PEEK(59455) OR 1	:REM RESTART
+
+Bus I/O
+-------
+
+	POKE 59396, 1		:REM MAP BANK 0, $9xxx to /MEMSEL
+	
+Then RC2014 is on Apple II "slot 6", i.e. in $96xx.
+
+Use 
+	POKE 9*4096+6*256,x	
+To set the LED in the RC2014 board
+
