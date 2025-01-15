@@ -1,4 +1,3 @@
-
 BASE=$(shell git remote -v | cut -f 2- | sed -e "s%fachat/.*%fachat%g" | uniq )
 
 all:
@@ -16,9 +15,8 @@ clone:
 	test -d wifi-option || git clone $(BASE)/upet_wifi wifi-option
 	test -d software || git clone $(BASE)/upet_software software
 	test -d emu || git clone $(BASE)/xcbm emu
-	for i in roms fpga ultracpu micropet ultipet ultrabus wifi-option software emu; do (cd $$i; make clone;) done
+	for i in roms fpga ultracpu micropet ultipet ultrabus wifi-option software emu; do make -C $$i clone; done
 
 update:
 	git pull
-	for i in roms fpga ultracpu micropet ultipet ultrabus wifi-option software emu; do (cd $$i; make update;) done
-
+	for i in roms fpga ultracpu micropet ultipet ultrabus wifi-option software emu; do make -C $$i update; done
