@@ -4,11 +4,12 @@
 This is the root repository for a number of 8-bit retro machines, mainly clones of the Commodore PET - but with many more features. 
 This is a family of boards with a set of core features, and different additional features depending on the board variant.
 
-The *Ultra-CPU* core is based on my CS/A bus system, and as an FPGA is used that contains the memory mapping, could be used in different types of system, not just the PET.
+The *Micro-PET* is the core PET clone, already with USB, SD-Card, and network interfaces in addition to all the standard PET I/O: IEEE488, keyboard, and tape (but without 9V), on a single 100x190mm board.
 
-The *Micro-PET* is the core, plus all the standard PET I/O, mainly IEEE488, keyboard, and tape (but without 9V), on a single 100x190mm board.
+The *Ulti-PET* is a fully integrated PET clone, with many many features. Most notably, I added dual SID, mixer, and an audio amp, fast serial IEC bus, RS232, and I extended IO by using the 6502.org original SPI-10 specs and included a 5V (based on the VIA SR), and a 3.3V (based on the FPGA) variant. Also, an UEXT connector is on board, including I2C, 3.3V-TTL serial, and SPI (based on the FPGA SPI interface).
 
-The *Ulti-PET* finally, is a fully integrated PET clone, with many many features. Most notably, I used the 6502.org original SPI-10 specs and included a 5V (based on the VIA SR), and a 3.3V (based on the FPGA) variant. Also, an UEXT connector is on board, including I2C, 3.3V-TTL serial, and SPI (based on the FPGA SPI interface).
+The *Ultra-CPU* core is only the FPGA-based core, using my CS/A bus system for extensions. Together with the PETIO board it makes a Micro-PET, and can be extended to almost a full Ulti-PET with further additional boards, and beyond. As the board itself does not include any PET specifics, it could be used to create other type of clones, as long as they are based on the CS/A bus.
+
 
 image::images/family.jpg[The Micro-PET family]
 
@@ -16,20 +17,16 @@ image::images/family.jpg[The Micro-PET family]
 
 All variants center around a set of core features, as implemented in the Ultra-CPU board. The core specs are:
 
-=== Ultra-CPU
-
-* CS/A bus-based 65816 CPU board
-* Up to 17.5 MHz 65816 CPU, with 1MB RAM (512k fast, 512k media RAM)
-* 768x576 VGA with 16 colours out of 64, various modes incl. Colour-PET and C64-alike, incl. sprites
-* USB host for keyboard and mouse
-* DAC (DMA) audio output
-* Port for SD-Card adapter (2 variants)
-* Port for Network, with either Ethernet or Wifi options
-
 === Micro-PET
 
-The Micro-PET removes the CS/A bus connector, but adds:
-
+* CS/A bus-based 65816 CPU board
+* Up to 13.5 MHz 65816 CPU, with 1MB RAM (512k fast, 512k media RAM)
+* 720x576 VGA with 16 colours out of 64, various modes incl. Colour-PET and C64-alike, incl. sprites - see the README in the fpga sub-repository.
+* USB host for keyboard and mouse
+* DAC (DMA) audio output
+* Port for SD-Card adapter
+* Port for Network, with either Ethernet or Wifi options
+* RTC chip
 * Standard PET I/O, plus ability to work as IEEE488 device
 
 === Ulti-PET
@@ -45,7 +42,11 @@ and adds these features on top:
 * SPI-10 5V, SPI-10 3.3V, and UEXT extension ports (partially shared, see schematics), incl. I2C
 * Fully functional Tape incl. 9V for Tape drive power supply
 * Expansion ports for the CS/A bus - single wide port, single shortbus port for Ultrabus expansion board
-* Accompanying bus extender board to use CS/A, RC2014, Apple-II, or C64 cards
+* Accompanying Ultra-Bus bus extender board to use CS/A, RC2014, Apple-II, or C64 cards
+
+=== Ultra-CPU
+
+The Ultra-CPU is a Micro-PET without the Standard PET I/O, but with the CS/A bus
 
 == Build
 
@@ -87,6 +88,10 @@ The PETIO board completes the Ultra-CPU to a PET clone:
 
 Other CS/A bus boards are here http://www.6502.org/users/andre/csa/index.html[]
 
+=== Additional stuff
+
+* https://github.com/fachat/cbm_keyboard[PET keyboard re-creation]
+
 == FAQs
 
 Here are some answers to questions I got:
@@ -107,10 +112,11 @@ Mouser may not be the cheapest choice, so you may be
 able to optimize, but it is the most convenient for me.
 
 - Soldering might be a challenge. There are a couple of parts that have
-very small pin distances, down to IIRC .4 or .5mm. I might be looking
+very small pin distances, down to IIRC .4 or .5mm. I have been looking
 into providing separate information for SMD assembly like
-https://jlcpcb.com/smt-assembly but I haven't gotten to that point yet.
-That would then allow to get a board with all SMD done, and only
+https://jlcpcb.com/smt-assembly and the BOMs for the main boards now
+contain parts information for SMD assembly by JLCPCB.
+That allows getting a board with all SMD done, and only
 Through-hole parts to purchase yourself and solder.
 
 - Software-wise, you can select on the boot screen which version of

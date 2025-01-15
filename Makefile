@@ -1,5 +1,7 @@
 BASE=$(shell git remote -v | cut -f 2- | sed -e "s%fachat/.*%fachat%g" | uniq )
 
+SUBS=roms fpga ultracpu micropet ultipet ultrabus wifi-option software keyboard emu
+
 all:
 	@echo "Run 'make clone' to download all related repositories as subdirectories to this one"
 	@echo "Run 'make update' to update all cloned repositories"
@@ -14,9 +16,10 @@ clone:
 	test -d ultrabus || git clone $(BASE)/csa_ultrabus ultrabus
 	test -d wifi-option || git clone $(BASE)/upet_wifi wifi-option
 	test -d software || git clone $(BASE)/upet_software software
+	test -d keyboard || git clone $(BASE)/cbm_keyboard software
 	test -d emu || git clone $(BASE)/xcbm emu
-	for i in roms fpga ultracpu micropet ultipet ultrabus wifi-option software emu; do make -C $$i clone; done
+	for i in $(SUBS); do make -C $$i clone; done
 
 update:
 	git pull
-	for i in roms fpga ultracpu micropet ultipet ultrabus wifi-option software emu; do make -C $$i update; done
+	for i in $(SUBS); do make -C $$i update; done
