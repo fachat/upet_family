@@ -50,6 +50,8 @@ The Ultra-CPU is a Micro-PET without the Standard PET I/O, but with the CS/A bus
 
 == Build
 
+Note:: The FPGA config and boot ROM are in the transition to 54MHz main clock oscillator and 720x480/720x576 video output. Boards and BOMs have not yet been updated fully on the new clock. If you want to build one at this time, contact me for updated information.
+
 To build the boards, a few core repositories are required that contain shared code (FPGA, Firmware) in addition to the
 specific repositories for each board. Also, there are further options like Wifi, or the bus extender.
 
