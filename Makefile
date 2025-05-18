@@ -16,7 +16,7 @@ clone:
 	test -d ultrabus || git clone $(BASE)/csa_ultrabus ultrabus
 	test -d wifi-option || git clone $(BASE)/upet_wifi wifi-option
 	test -d software || git clone $(BASE)/upet_software software
-	test -d keyboard || git clone $(BASE)/cbm_keyboard software
+	test -d keyboard || git clone $(BASE)/cbm_keyboard keyboard
 	test -d emu || git clone $(BASE)/xcbm emu
 	for i in $(SUBS); do make -C $$i clone; done
 
