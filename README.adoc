@@ -6,13 +6,17 @@ This is a family of boards with a set of core features, and different additional
 
 The *Ulti-PET* is a fully integrated PET clone, with many many features. Most notably, I added dual SID, mixer, and an audio amp, fast serial IEC bus, RS232, and I extended IO by using the 6502.org original SPI-10 specs and included a 5V (based on the VIA SR), and a 3.3V (based on the FPGA) variant. Also, an UEXT connector is on board, including I2C, 3.3V-TTL serial, and SPI (based on the FPGA SPI interface).
 
-The *Micro-PET* is the core PET clone, already with USB, SD-Card, and network interfaces in addition to all the standard PET I/O: IEEE488, keyboard, and tape (but without 9V), on a single 100x190mm board.
-
-The *Ultra-CPU* core is only the FPGA-based core, using my CS/A bus system for extensions. Together with the PETIO board it makes a Micro-PET, and can be extended to almost a full Ulti-PET with further additional boards, and beyond. As the board itself does not include any PET specifics, it could be used to create other type of clones, as long as they are based on the CS/A bus.
-
 image::images/whitecase.jpg[The Ulti-PET]
 
+There are two more smaller systems based on the same technology:
+
+* The *Micro-PET* is the core PET clone, already with USB, SD-Card, and network interfaces in addition to all the standard PET I/O: IEEE488, keyboard, and tape (but without 9V), on a single 100x190mm board.
+
+* The *Ultra-CPU* core is only the FPGA-based core, using my CS/A bus system for extensions. Together with the PETIO board it makes a Micro-PET, and can be extended to almost a full Ulti-PET with further additional boards, and beyond. As the board itself does not include any PET specifics, it could be used to create other type of clones, as long as they are based on the CS/A bus.
+
 image::images/family.jpg[The Micro-PET family]
+
+* In addition, the *Ultra-Bus* serves as an expansion bus for the Ulti-PET and as base board for the Ultra-CPU. It allows using certain Apple-II, RC2014, and C64 expansions cards aside from its native *CS/A* bus cards.
 
 == Features
 
