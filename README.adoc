@@ -65,7 +65,9 @@ and firmware. Note that the subdirectories will also contain other subdirectorie
 
 To actually build one, you need to
 
-* get a populated PCB
+* get a populated PCB, e.g. from a PCB manufacturer. For production files see the system-specific directories.
+* get the missing parts from an electronics supplier (details see the system-specific directories)
+* install the parts - soldering required!
 * program the FPGA firmware into an own Flash ROM to put on the PCB. It is an SPI Flash ROM that any modern programmer should support.
 * build and program the system firmware (in the roms directory) into an own SPI Flash ROM
 * attach a C64 keyboard, or a PET keyboard, or build a keyboard replacement (based on Steve's designs, but greatly enhanced, see below)
