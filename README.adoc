@@ -20,7 +20,17 @@ image::images/family.jpg[The Micro-PET family]
 
 == Features
 
-All variants center around a set of core features, as implemented in the Ultra-CPU board. The core specs are:
+All variants center around a set of core features, as implemented in the Ultra-CPU board and the firmware. The core specs are:
+
+=== Firmware
+
+* all five main models supported: BASIC1, BASIC2, and BASIC4 40 columns, BASIC4 80 columns, and 8296.
+* BASIC4 with some basic BASIC extensions
+* Editor ROMs support Colour-PET modes (based on Steve Gray's editor ROM project)
+* SD-Card support as own drive unit
+* USB mouse or keyboard input
+* configuration options stored in RTC Flash memory
+* Run over serial line instead of attached keyboard/screen
 
 === Micro-PET
 
